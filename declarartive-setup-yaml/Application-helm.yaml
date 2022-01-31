@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sample-helm-1
+  name: sample-helm-yaml-cli
   namespace: argo # the ns must match the namespace of Argo CD
 spec:
   destination: # target cluster and namespace
     namespace: default 
     server: 'https://kubernetes.default.svc'
-  project: dev
+  project: dev2-cli
   source: #reference to the desired state in Git
     repoURL: https://github.com/Chanheeeee/jch-argocd.git
     targetRevision: main
-    path: sample-helm1
+    path: mychart
     helm: # helm setting (creating an application from a Helm)
       valueFiles:
         - values.yaml

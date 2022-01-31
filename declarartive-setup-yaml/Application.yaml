@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sample-yaml
+  name: sample-default-yaml-cli
   namespace: argo
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: dev2
+  project: dev2-cli
   source:
-    repoURL: https://github.com/dev-chulbuji/devops_k8s.git
-    targetRevision: HEAD
-    path: sample-yaml
+    repoURL: https://github.com/Chanheeeee/jch-argocd.git
+    targetRevision: main
+    path: nginx-app
 
   destination:
     server: https://kubernetes.default.svc
