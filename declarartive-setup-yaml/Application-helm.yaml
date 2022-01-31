@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-helm-1
+  namespace: argo # the ns must match the namespace of Argo CD
+spec:
+  destination: # target cluster and namespace
+    namespace: default 
+    server: 'https://kubernetes.default.svc'
+  project: dev
+  source: #reference to the desired state in Git
+    repoURL: https://github.com/Chanheeeee/jch-argocd.git
+    targetRevision: main
+    path: sample-helm1
+    helm: # helm setting (creating an application from a Helm)
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=background
