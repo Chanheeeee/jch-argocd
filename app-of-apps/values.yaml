@@ -46,7 +46,7 @@ apps:
   #   source:
   #     path: demo
   - name: mychart-test
-    project: dev
+    project: default
     namespace: default
     source:
       path: mychart
