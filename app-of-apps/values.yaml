@@ -50,8 +50,8 @@ apps:
     namespace: default
     source:
       path: mychart
-  # - name: sample-helm-2
-  #   project: dev
-  #   namespace: default
-  #   source:
-  #     path: sample-helm-2
+  - name: mychart-test2
+    project: default
+    namespace: default
+    source:
+      path: mychart2
